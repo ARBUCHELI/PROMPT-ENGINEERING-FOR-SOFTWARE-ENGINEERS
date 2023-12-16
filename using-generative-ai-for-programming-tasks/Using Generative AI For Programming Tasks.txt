@@ -257,6 +257,132 @@ $ grep -Eo '+?[0-9]{1,3}-?[0-9]{3,}-?[0-9]{3,}' data.md
 
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
+* Writing Database Queries
+--------------------------
+Database queries allow us to interact with the data stored in our databases. Writing queries that interact with or find data from a database are a big part of many programmers’ work. 
+Finding complex but useful information from a big database can be hard. Hours can be spent creating a query that finds all the right data and presents it in a readable fashion.
+
+Generative AI can help speed up this process! It can help provide information about the database structure, the information we want, and how the data should be presented. Your Generative 
+AI tool can quickly generate our query.
+
+Here are some examples:
+
+	. Find the total sales and average sales per day for each month:
+
+	. Find customers who have made at least three orders in a given month
+
+	. Calculate the average rating for each product category, including categories with no products
+
+While these queries might not always be correct, they will often give us some idea of how to reach our goal. However, be especially careful creating queries that modify or delete tables 
+or their contents.
+
+* Instructions
+--------------
+Checkpoint 1 Passed
+1.
+A database is set up that tracks customers, products, and orders. Use FakeGPT to select the prompt that retrieves customers with at least three orders.
+
+Paste the generated query into the terminal and press the Enter key to run the query.
+
+
+Hint
+Use the prompt Create an SQL query that retrieves customers with at least three orders in March 2023 and run the generated query in the terminal.
+
+bash
+----
+
+Terminal
+
+$ SELECT c.CustomerId, c.Name 
+..   FROM Customers c 
+..   JOIN Orders o ON c.CustomerId = o.CustomerId 
+..   WHERE YEAR(o.Date) = 2023 
+..   AND MONTH(o.Date) = 3 
+..   GROUP BY c.CustomerId, c.Name 
+..   HAVING COUNT(o.CustomerId) >= 3;
+
+CustomerId | Name
+1          | John Doe
+5          | Emily Johnson
+10         | Ahmed Khan
+15         | Mei Ling
+20         | Alejandro Ramirez
+$ 
+
+2.
+Now use FakeGPT to generate an SQL query that gets the running total of sales per day.
+
+Paste the generated query into the terminal again and run it by pressing Enter.
+
+
+Hint
+Use the prompt Create an SQL query that retrieves the total sales for the week starting 2022-07-03 and run the generated query in the terminal.
+
+bash
+----
+SELECT DATE(o.Date) AS Date, SUM(p.Price) OVER (ORDER BY o.Date) AS RunningTotal 
+..   FROM Orders o 
+..   JOIN Products p ON o.ProductId = p.ProductId 
+..   WHERE o.Date BETWEEN DATE_ADD(2022-07-03, INTERVAL -7 DAY) AND CURDATE() 
+..   GROUP BY DATE(o.Date) 
+..   ORDER BY DATE(o.Date);
+
+Date       | TotalSales
+2022-07-03 | 550.75
+2022-07-04 | 700.25
+2022-07-05 | 800.80
+2022-07-06 | 345.75
+2022-07-07 | 490.10
+2022-07-08 | 620.85
+2022-07-09 | 395.25
+
+Checkpoint 3 Passed
+3.
+Lastly, use FakeGPT to generate an SQL query that finds the 5 products with the highest sales.
+
+Paste the generated query into the terminal and press Enter.
+
+
+Hint
+Use the prompt Create an SQL query that retrieves the top 5 products with the highest sales and run the generated query in the terminal.
+
+$ SELECT p.ProductId, p.Description, SUM(p.Price) AS TotalSales 
+..   FROM Products p 
+..   JOIN Orders o ON p.ProductId = o.ProductId 
+..   GROUP BY p.ProductId, p.Description 
+..   ORDER BY TotalSales DESC 
+..   LIMIT 5;
+
+ProductId | Description        | TotalSales
+5         | Widget X           | 500.00
+10        | Gadget Y           | 450.50
+3         | Gizmo Z            | 400.25
+8         | Thingamajig A      | 350.75
+15        | Whatchamacallit B   | 300.80
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
