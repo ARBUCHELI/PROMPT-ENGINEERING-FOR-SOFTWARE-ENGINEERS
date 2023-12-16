@@ -69,6 +69,125 @@ print(f"Hello, {name}!")
 
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
+* Bash Commands
+---------------
+The terminal is a powerful tool that allows us to write Bash commands that can read and manipulate our computer systems. Even for experienced programmers writing complex terminal commands 
+can be challenging. There are an infinite number of useful commands, and we learn about new ones all the time.
+
+When trying to work on a terminal or filesystem, we often wonder, “Is there a command for that?” With Generative AI tools, we have a new way to find out.
+
+Simply ask the Generative AI tool for a command that does the task you are trying to do. Consider prompts like:
+
+	. “What is a Terminal command that will list all of the files on my Mac in the file directory that begin with the current year?”
+
+	. “What is the bash command that will squash my git history?”
+
+	. “How can I use Command Prompt to search for program files that use the Customer class?”
+
+Generative AI tools will often come up with a useful command for what we are trying to do!
+
+It’s important to note that Generative AI tools can make mistakes. It is crucial to have a decent understanding of bash to ensure that we know what the commands are doing before we run 
+them. One should be especially careful when running destructive commands such as ones that delete files like rm -rf <folder>.
+
+* Instructions
+--------------
+Checkpoint 1 Passed
+1.
+The numbers.txt file contains different department phone numbers. Using the FakeGPT application, enter a prompt that will help you generate a bash command to extract phone numbers from a 
+file.
+
+The output will give you the bash command to run, along with generated instructions. Paste the FakeGPT’s supplied bash command into the terminal and follow the generated instructions to 
+alter the command to work on the numbers.txt file.
+
+
+Hint
+Be sure to replace textfile.txt with numbers.txt in FakeGPT’s supplied command.
+
+numbers.txt
+-----------
+Sales: 212-555-2101
+Accounts: 212-555-2105
+Reception: 212-555-2100
+Warehouse: 212-555-2106
+
+Bash Command:
+-------------
+grep -Eo '[0-9]{3}-[0-9]{3}-[0-9]{4}' numbers.txt
+
+Let's break down the command:
+
+* grep is the command for searching patterns in files.
+* -E enables extended regular expressions, allowing us to use the {} syntax for specifying repetition.
+* -o displays only the matching part of each line.
+* [0-9]{3} matches three digits (0 to 9) in a sequence.
+* [-] matches the hyphen (-) character.
+* The pattern [0-9]{3}-[0-9]{3}-[0-9]{4} represents the format of a phone number with three digits followed by a hyphen, then another three digits, and finally another hyphen and four 
+digits.
+
+Replace textfile.txt with the name of the actual text file you want to search. Running this command will display all phone numbers found within the file, one per line.
+
+Keep in mind that this pattern assumes the phone numbers are in the format xxx-xxx-xxxx. If the phone numbers in your file have a different format or if there are variations, you may need 
+to adjust the regular expression pattern accordingly.
+
+
+2.
+If you click on the folder icon to the left of the numbers.txt tab, you will see a directory called tps_reports. Inside the tps_reports directory are reports of two different types:
+
+.pdf
+.csv
+Use the FakeGPT application to generate a bash command that will list all the .csv files from a given directory.
+
+The output will give you the bash command to run, along with generated instructions. Paste FakeGPT’s supplied bash command into the terminal and follow FakeGPT’s generated instructions to 
+change the command to find the .csv files in the tps_reports directory.
+
+Hint
+Be sure to replace /path/to/directory with tps_reports in FakeGPT’s supplied command.
+
+To find all files with a CSV extension in a directory, you can use the find command along with the -name option. Here's an example command:
+
+Bash Command:
+-------------
+
+find /path/to/directory -type f -name "*.csv"
+
+Replace /path/to/directory with the actual directory path you want to search. This command will recursively search the specified directory and its subdirectories for files with the 
+extension ".csv" and display their paths.
+
+Let's break down the command:
+
+* find is the command for searching files and directories.
+* /path/to/directory is the directory where the search will be performed. Replace it with the desired directory path.
+* -type f specifies that we are searching for regular files (not directories or other file types).
+* -name "*.csv" is the pattern we are searching for. It uses the wildcard * to match any sequence of characters and specifies the extension as ".csv".
+
+Running this command will list all files with the CSV extension within the specified directory and its subdirectories.
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
