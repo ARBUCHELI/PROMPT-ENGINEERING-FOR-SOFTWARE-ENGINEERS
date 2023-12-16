@@ -1,0 +1,104 @@
+# USING GENERATIVE AI FOR PROGRAMMING TASKS
+-------------------------------------------
+
+* Introduction
+--------------
+Many software engineers are thinking about how to use AI-powered tools for programming. How can we use these? Will they replace us? The introduction of these tools has drawn a lot of 
+attention.
+
+In this lesson, we will discuss ways we can leverage text-based Generative AI tools, such as ChatGPT, to assist with various programming tasks. Some of what we will cover include:
+
+	. Writing bash commands
+
+	. Creating regular expressions
+
+	. Making SQL queries
+
+	. Testing and Refactoring
+
+While exciting, these tools aren’t perfect, and we will also discuss their limitations and concerns.
+
+Whether you’re an experienced software engineer or someone new to programming, AI tools can be leveraged to save us work and time. Let’s get started.
+
+* Instructions
+--------------
+Checkpoint 1 Passed
+1.
+Throughout this lesson, you will be using the FakeGPT application. It allows you to select a prompt at the bottom and submit it to see the generated output.
+
+Make sure to click the Send button in the workspace to send your message! It looks like a paper airplaneThe send button looks like a paper airplane.
+
+You can also click the circle arrow to clear the output screen. Let’s run a couple of prompts to practice using Fake GPT.
+
+Select the prompt to create code that outputs Hello, World!. Once the code is generated, copy the code and copy it into the hello.py file in the code editor.
+
+Click Run to run the generated code.
+
+
+Hint
+Submit the Write Python code that says 'Hello, World!' prompt and copy the code to hello.py.
+
+The code is:
+
+print('Hello, World!')
+
+Checkpoint 2 Passed
+2.
+Now, it’s time to generate more code!
+
+Select the prompt “Write Python code that says hello to a specific person”. FakeGPT will generate code and instructions.
+
+Copy the code to a new line of the hello.py file and follow the instructions to change the code to your chosen name.
+
+Click Run to run the generated code.
+
+
+Hint
+Submit the Write Python code that says hello to a specific person. prompt, copy the code to hello.py, and replace John with your chosen name.
+
+The code is:
+
+name = "John"
+print(f"Hello, {name}!")
+
+hello.py
+--------
+print('Hello, World!')
+name = "John"
+print(f"Hello, {name}!")
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
