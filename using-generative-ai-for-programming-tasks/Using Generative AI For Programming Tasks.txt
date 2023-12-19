@@ -514,6 +514,179 @@ Goblin attacks Player and does 10 damage.
 
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
+* Generate Unit Tests
+---------------------
+We know that AI code can often make errors such as infinite loops, memory mismanagement, and the “hallucination” of made-up libraries and functions.
+
+With all of the code we write, we need a way to ensure it works. When incorporating code written by AI into our projects, testing becomes even more important!
+
+Generative AI tools can help us test our code, by generating data for tests as well as generating the test code itself. Consider prompts like:
+
+	. Generate test data for a function that takes in an email and password as parameters
+
+	.Create a Python division function as well as unit tests
+
+	. Create tests for the following function:
+
+def times_two(x):
+  return 2 * x
+
+As with all other use cases, we cannot rely purely on Generative AI. Testing code should be inspected to ensure it is behaving properly, and care should be taken that important inputs are 
+covered. Unit tests are created to ensure our code is not failing, so we must avoid faulty unit tests!
+
+The code editor has two files open, division.py, and email.py. You will be pasting code into each. At any point, if you close one of the files, you can reopen it in the directory by 
+clicking the folder icon to the left of the file tabs.
+
+* Instructions
+--------------
+Checkpoint 1 Enabled
+1.
+With division.py as the active file, use FakeGPT to generate a Python division function with some test code. Once the code is generated, copy it and paste it into division.py.
+
+Click Run to see the result.
+
+
+Hint
+Copy and paste the generated test code into division.py and run the code.
+
+Create a python division function as well as unit tests
+
+import unittest
+
+def divide(dividend, divisor):
+    if divisor == 0:
+        raise ValueError("Cannot divide by zero")
+    return dividend / divisor
+
+class DivisionTestCase(unittest.TestCase):
+    def test_divide(self):
+        self.assertEqual(divide(10, 2), 5)
+        self.assertAlmostEqual(divide(7, 3), 2.3333333333333335)
+        self.assertEqual(divide(0, 5), 0)
+    
+    def test_divide_by_zero(self):
+        with self.assertRaises(ValueError):
+            divide(10, 0)
+
+if __name__ == "__main__":
+    unittest.main()
+
+In this example, the divide() function takes two arguments, dividend and divisor, and returns the result of dividing the dividend by the divisor. It also handles the case when the divisor 
+is zero by raising a ValueError.
+
+The unittest module is used to define test cases. In the DivisionTestCase class, two test methods are defined. The test_divide() method tests the division function with different inputs 
+and verifies the expected results using assertions. The test_divide_by_zero() method tests that dividing by zero raises a ValueError as expected.
+
+By running the script, the unit tests are executed, and any assertion errors or exceptions are reported. If all tests pass without any errors, you will see an output indicating the number 
+of tests run and their success status.
+
+You can further expand the test cases to cover more scenarios and edge cases based on your specific requirements.
+
+Output
+------
+..
+----------------------------------------------------------------------
+Ran 2 tests in 0.000s
+
+OK
+
+2.
+Now make email.py active file and use FakeGPT to generate code to create email and password test data.
+
+Paste the code into email.py and run it.
+
+
+Hint
+Copy and paste the generated test code into email.py and run the code.
+
+Create a set of functions that generate test data for testing a function that takes in an email and password as parameters
+
+import random
+import string
+
+def generate_test_data(num_samples):
+    test_data = []
+    for _ in range(num_samples):
+        # Generate a random email
+        email = generate_random_email()
+
+        # Generate a random password
+        password = generate_random_password()
+
+        # Append the email and password to the test data
+        test_data.append((email, password))
+
+    return test_data
+
+def generate_random_email():
+    domains = ['gmail.com', 'yahoo.com', 'hotmail.com', 'example.com']
+    username_length = random.randint(5, 12)
+    username = ''.join(random.choices(string.ascii_lowercase, k=username_length))
+    domain = random.choice(domains)
+    return f"{username}@{domain}"
+
+def generate_random_password():
+    password_length = random.randint(8, 16)
+    characters = string.ascii_letters + string.digits + string.punctuation
+    password = ''.join(random.choices(characters, k=password_length))
+    return password
+
+# Generate 10 test data samples
+test_data = generate_test_data(10)
+
+# Print the generated test data
+for email, password in test_data:
+    print(f"Email: {email}, Password: {password}")
+
+In this example, the generate_test_data function generates a specified number of test data samples. For each sample, it generates a random email using the generate_random_email function 
+and a random password using the generate_random_password function. The test data is stored as tuples of (email, password).
+
+The generate_random_email function randomly selects a domain from a list of common email domains and generates a random username using lowercase letters.
+
+The generate_random_password function generates a random password with a random length between 8 and 16 characters. It includes a combination of uppercase letters, lowercase letters, 
+digits, and punctuation characters.
+
+Finally, the generated test data is printed to demonstrate the result. You can adjust the num_samples parameter to generate the desired number of test data samples.
+
+Ouput
+-----
+Email: xcnzjjfxa@yahoo.com, Password: Uzri$\HcCS>.@Px
+Email: kgayxfi@hotmail.com, Password: )K:Hqv{iF
+Email: bbchw@yahoo.com, Password: <;ey6AlAvBt
+Email: uasthfurzb@gmail.com, Password: J*G'rEVlW
+Email: pqpudkwtmigq@hotmail.com, Password: Y)5>n=-8"
+Email: zusjltefxk@hotmail.com, Password: {ijk11LSl|
+Email: cvdujrxkcnib@yahoo.com, Password: SC/{Ka4@lHns
+Email: sozflqsb@gmail.com, Password: q3HqWKwA%hGe
+Email: yirgodx@example.com, Password: `pp:B:"8g([iS}
+Email: bwvxrhysltip@yahoo.com, Password: kZH}Bv:Cp
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
