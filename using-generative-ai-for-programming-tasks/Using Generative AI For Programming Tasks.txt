@@ -362,6 +362,191 @@ ProductId | Description        | TotalSales
 
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
+* Class Creation
+----------------
+Classes are behavior (methods) and data (attributes) representations of parts of our systems. While many modern IDEs can generate a base class with method signatures, ChatGPT can go a 
+step further. When requesting a class, ChatGPT will be able to generate code accomplishing some of the class behaviors.
+
+Consider prompts like the following:
+
+	. Write a class for a bank account with a balance and the ability to withdraw and deposit funds
+
+	. Create a class representing a TicTacToe game board
+
+	. Create a class representing an enemy character with attributes such as hit points
+
+Often this behavior will need to be checked, but Generative AI tools can quickly take you from a description to a working piece of software. Once the basic template is created, we can 
+complete the complex tasks that Generative AI tools may struggle to do.
+
+Make sure to double-check the initial implementation because AI code can often make errors such as infinite loops, memory mismanagement, and the “hallucination” of made-up libraries and 
+functions.
+
+* Instructions
+--------------
+Checkpoint 1 Enabled
+1.
+The code editor has three files open, bank.py, tictactoe.py, and enemy.py. You will be pasting code into each. At any point if you close one of the files, you can reopen it in the 
+directory by clicking the folder icon to the left of the file tabs.
+
+Click on the bank.py tab to make it the active file. Use FakeGPT to generate a Python class of a bank account with withdrawal and deposit capabilities. Once the code is generated, copy it 
+and paste it into bank.py.
+
+Click Run to see the result.
+
+
+Hint
+Copy and paste the generated bank account code into bank.py and run the code.
+
+Write a Python class for a bank account with a balance and the ability to withdraw and deposit funds
+
+class BankAccount:
+  def __init__(self, initial_balance=0):
+    self.balance = initial_balance
+
+  def deposit(self, amount):
+    self.balance += amount
+
+  def withdraw(self, amount):
+    if self.balance >= amount:
+      self.balance -= amount
+    else:
+      print("Insufficient funds")
+
+# Example usage:
+account = BankAccount(1000)
+print("Initial balance:", account.balance)
+
+account.deposit(500)
+print("Balance after deposit:", account.balance)
+
+account.withdraw(200)
+print("Balance after withdrawal:", account.balance)
+
+Output
+------
+
+Initial balance: 1000
+Balance after deposit: 1500
+Balance after withdrawal: 1300
+
+
+2.
+Now make tictactoe.py the active file and use FakeGPT to generate a Python class of a tic-tac-toe board. Once the code is generated, copy and paste it into tictactoe.py.
+
+Click Run to see the result.
+
+
+Hint
+Copy and paste the generated tic tac toe code into tictactoe.py and run the code.
+
+Create a Python class representing a TicTacToe game board
+
+class TicTacToeBoard:
+  def __init__(self):
+    self.board = [[" " for _ in range(3)] for _ in range(3)]
+
+  def print_board(self):
+    for row in self.board:
+      print("|".join(row))
+      print("-" * 5)
+
+  def make_move(self, player, row, col):
+    if self.board[row][col] == " ":
+      self.board[row][col] = player
+      return True
+    else:
+      print("Invalid move. Try again.")
+      return False
+
+# Example usage:
+board = TicTacToeBoard()
+board.make_move("X", 0, 0)
+board.make_move("O", 1, 1)
+board.make_move("X", 0, 1)
+board.print_board()
+
+Output
+------
+X|X| 
+-----
+ |O| 
+-----
+ | | 
+-----
+
+
+3.
+Finally, make enemy.py the active file and use FakeGPT to generate a Python class of an enemy character. Once the code is generated, copy and paste it into enemy.py.
+
+Click Run to see the result.
+
+
+Hint
+Copy and paste the generated enemy character code into enemy.py and run the code.
+
+3.
+Finally, make enemy.py the active file and use FakeGPT to generate a Python class of an enemy character. Once the code is generated, copy and paste it into enemy.py.
+
+Click Run to see the result.
+
+
+Hint
+Copy and paste the generated enemy character code into enemy.py and run the code.
+
+ representing a TicTacToe game board
+Create a Python class representing an enemy character with attributes such as hit points
+Create a Python class representing an enemy character with attributes such as hit points
+
+class EnemyCharacter:
+  def __init__(self, name, hit_points, attack_power):
+    self.name = name
+    self.hit_points = hit_points
+    self.attack_power = attack_power
+
+  def attack(self, target):
+    print(f"{self.name} attacks {target} and does {self.attack_power} damage.")
+
+# Example usage:
+enemy = EnemyCharacter("Goblin", 50, 10)
+enemy.attack("Player")
+
+Goblin attacks Player and does 10 damage.
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
