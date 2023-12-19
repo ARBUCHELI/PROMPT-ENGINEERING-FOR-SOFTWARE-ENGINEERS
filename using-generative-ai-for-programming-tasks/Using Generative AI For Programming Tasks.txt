@@ -663,6 +663,293 @@ Email: bwvxrhysltip@yahoo.com, Password: kZH}Bv:Cp
 
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
+* Refactoring
+-------------
+In addition to generating new code, ChatGPT can be used for various tasks that involve modifying existing code.
+
+ChatGPT can translate between programming languages, provide comments, suggest improvements, rename variables, and more!
+
+Consider using ChatGPT with prompts like the following:
+
+	. Translate the following code from Java to Python:
+
+	. Make the following code more readable:
+
+	. Add comments to the following code:
+
+As with everything else, ChatGPT can introduce errors into previously working code. Be sure to inspect and test anything ChatGPT creates.
+
+The code editor has three files open, readable.go, translate.go, and comment.go. You will be pasting code into each. At any point, if you close one of the files, you can reopen it in the 
+directory by clicking the folder icon to the left of the file tabs.
+
+* Instructions
+--------------
+Checkpoint 1 Enabled
+1.
+Ensure readable.go is the active file and use FakeGPT to generate more readable Go code given some input code. Once the new code is generated, copy and paste it into readable.go.
+
+Click Run to see the result.
+
+
+Hint
+Copy and paste the generated code into readable.go and run the code.
+
+Make the following code more readable
+
+original.go
+-----------
+package main
+import "fmt"
+func twoSum(nums []int, target int) []int {
+    m := make(map[int]int);
+    for i, k := range nums {
+        key := target - k
+        v, ok := m[k]
+        if ok {
+            return []int {v, i}
+        }
+        m[key] = i
+    }
+    return []int {0,0}
+}
+func main() {
+    a := []int{2, 7, 11, 15}
+    b := 9
+    c := twoSum(a, b)
+    fmt.Println(c)
+}
+
+readable.go
+-----------
+package main
+
+import "fmt"
+      
+func twoSum(nums []int, target int) []int {
+    numMap := make(map[int]int)
+
+    for i, num := range nums {
+        complement := target - num
+
+        if index, ok := numMap[num]; ok {
+            return []int{index, i}
+        }
+
+        numMap[complement] = i
+    }
+
+    return []int{0, 0}
+}
+
+func main() {
+    nums := []int{2, 7, 11, 15}
+    target := 9
+
+    result := twoSum(nums, target)
+    fmt.Println(result)
+}
+
+2.
+Now make translate.go the active file. Use FakeGPT to translate Python code to Go code. Copy the generated code into translate.go.
+
+click Run to see the result.
+
+
+Hint
+Copy and paste the generated code into translate.go and run the code.
+
+Make the following code more readable
+
+translate-1.py
+--------------
+def fibonacci(limit):
+    num1, num2 = 0, 1
+    print(num1, end=" ")
+    while num2 <= limit:
+        print(num2, end=" ")
+        num1, num2 = num2, num1 + num2
+
+fibonacci(100)
+
+translate-1.go
+--------------
+package main
+
+import "fmt"
+
+func fibonacci(limit int) {
+    num1, num2 := 0, 1
+    fmt.Print(num1, " ")
+    for num2 <= limit {
+        fmt.Print(num2, " ")
+        num1, num2 = num2, num1 + num2
+    }
+}
+
+func main() {
+    fibonacci(100)
+}
+
+3.
+Lastly, make comment.go the active file and have FakeGPT add comments to the given Go code. Copy and paste the generated code into comment.go and run it.
+
+
+Hint
+Copy and paste the generated code into comment.go and run the code.
+
+comment-1.go
+------------
+package main
+
+import (
+    "fmt"
+    "math"
+)
+
+func reverse(x int) int {
+    negative := x < 0
+    if negative {
+        x *= -1
+    }    
+
+    var reversed int
+    
+    for x > 0 {
+        reversed += x % 10
+        if (x >= 10) {
+            reversed *= 10
+        }
+        x /= 10
+        fmt.Println(reversed, x)
+    }
+
+    if negative {
+        reversed *= -1
+    }
+
+    if float64(reversed) < (-1 * (math.Pow(2,31))) || float64(reversed) > (math.Pow(2,31)-1) {
+        return 0;
+    } 
+
+    return reversed
+}
+
+func main() {
+    x := 12345
+    result := reverse(x)
+    fmt.Println("Reversed number:", result)
+}
+
+comment-2.go
+------------
+package main
+
+import (
+    "fmt"
+    "math"
+)
+      
+func reverse(x int) int {
+    negative := x < 0  // Check if x is negative
+    if negative {
+        x *= -1  // Convert x to positive
+    }
+
+    var reversed int  // Variable to store the reversed number
+
+    // Reverse the digits of x
+    for x > 0 {
+        reversed += x % 10  // Add the last digit of x to reversed
+        if x >= 10 {
+            reversed *= 10  // Multiply reversed by 10 if there are more digits remaining
+        }
+        x /= 10  // Remove the last digit of x
+        fmt.Println(reversed, x)  // Print intermediate results (optional)
+    }
+
+    if negative {
+        reversed *= -1  // Convert reversed back to negative if x was negative
+    }
+
+    // Check for integer overflow
+    if float64(reversed) < (-1 * (math.Pow(2,31))) || float64(reversed) > (math.Pow(2,31)-1) {
+        return 0  // Return 0 if the reversed number is out of the signed 32-bit integer range
+    }
+
+    return reversed  // Return the reversed number
+}
+
+func main() {
+    x := 12345  // The number to be reversed
+    result := reverse(x)  // Call the reverse function with x and store the result
+    fmt.Println("Reversed number:", result)
+}
+
+Output
+------
+50 1234
+540 123
+5430 12
+54320 1
+54321 0
+Reversed number: 54321
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+* Review
+--------
+Throughout this lesson, we established that ChatGPT can be used for many programming tasks.
+
+Some of the ways that ChatGPT can best help includes tasks like:
+
+	. Creating bash commands and regular expressions
+
+	. Writing SQL queries
+
+	. Making classes and unit tests
+
+	. Refactoring code in many forms
+
+With all of these tasks, ChatGPT can make mistakes. Anything produced by ChatGPT is unverified and should be reviewed.
+
+While ChatGPT is useful, it is far from replacing a software engineer. It’s best to think of ChatGPT as a helpful assistant that needs to be combined with real development experience.
+
+Next time you’re creating code, try incorporating the help of ChatGPT!
+
+* Instructions
+--------------
+Use FakeGPT to explore more topics available on the Codecademy Platform.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
