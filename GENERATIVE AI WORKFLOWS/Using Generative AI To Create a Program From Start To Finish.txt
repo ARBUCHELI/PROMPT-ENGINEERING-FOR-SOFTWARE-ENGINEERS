@@ -1,0 +1,96 @@
+# USING GENERATIVE AI TO CREATE A PROGRAM FROM START TO FINISH
+--------------------------------------------------------------
+
+* Research Before a Project
+---------------------------
+At the start of a project, we are still figuring out what we want to do and how we want to accomplish it. Coming up with the combination of requirements, scope, and technologies used to 
+make something can be challenging. From the outset of a task, Generative AI can help.
+
+In the beginning, Generative AI can assist with fleshing out what needs to be accomplished. Consider prompts like
+
+“Create requirements for a project that <description>.”
+“What might an app that <description> need to do?”
+
+These can help us brainstorm ideas for what our project should do.
+
+Once we have a solid understanding of what we want to do, we can use Generative AI to figure out how we want to accomplish it. Generative AI can give us ideas for what technologies, 
+frameworks, or languages to use for our ideas. Prompts such as:
+
+	. “What language/library should I use for <task>?”
+
+	. “What type of database should I use for <storage requirements>?”
+
+None of these prompts will give us a final answer that we will just start creating with. Our Generative AI tool will likely produce a range of options, as well as explanations for each 
+option. These can help guide us in a direction, using our best judgment in addition to the information the tool is providing.
+
+Next, we will discuss using Generative AI once we’ve actually started coding.
+
+* Instructions
+--------------
+Click on a sample prompt to see what using ChatGPT for research could look like!
+
+Try starting with: “Create requirements for a project that uses a database which stores orders.”
+
+Make sure to click the Send button in the workspace to send your message! It looks like a paper airplaneThe send button looks like a paper airplane.
+
+Create requirements for a project that uses a database which stores orders.
+
+Project: Order Management System
+--------------------------------
+
+Requirements:
+-------------
+
+	1. Database Setup: Choose a relational database (e.g., MongoDB, MySQL, PostgreSQL) and design schema for orders, customer info, items, status.
+
+	2. Order Handling: Create orders with unique IDs and timestamps: Capture customer details and link with order items.
+
+	3. Status Tracking: Define order statuses (e.g., pending, shipped), and allow status updates and timestamp tracking.
+
+	4. User Access: Implement admin and user authentication, and amins can view and manage orders.
+
+	5. Notifications: Email customers on status changes with info.
+
+	6. Security: Encrypt sensitive data, and apply access controls to protect data.
+
+	7. Reporting: Generate basic sales reports and trends.
+
+	8. Error Handling: Validate inputs to prevent errors.
+
+	9. Scalability: Design for growth in order volume.
+
+	10. Interface: User-friendly interface for order management.
+
+	11. Tech Stack: Choose backend (e.g., Django, Ruby on Rails), and utilize HTML, CSS, and JavaScript for frontend.
+
+	12. Deployment: Deploy to a secure server environment.
+
+These streamlined requirements cover key aspects of an Order Management System with a focus on efficiency and core functionalities. Additional details can be added as needed for specific 
+project goals.
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
