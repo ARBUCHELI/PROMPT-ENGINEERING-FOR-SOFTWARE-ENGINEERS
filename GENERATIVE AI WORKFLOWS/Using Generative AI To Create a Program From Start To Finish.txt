@@ -70,6 +70,116 @@ project goals.
 
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
+* Creating Starter Code
+-----------------------
+As we are developing something, we are often looking for code snippets and examples we can build off of to accomplish our goals. Generative AI tools can provide specific code in ways 
+particularly matched to the problem at hand in a way more information sources can’t.
+
+Whether its creating some logic, functions, or even classes, Generative AI can give us a solid starting point. Consider prompts like:
+
+	. “Write Python code to connect to a Mongodb database and query the most recent order from the Orders table.”
+
+	. “Create a Java snippet that sends a put request with a JSON object”.
+
+These prompts could be improved with further details about what is trying to be achieved.
+
+In both these examples, we could make the prompts more effective. When writing prompts, it can help to use clear language, define the purpose, and include important context. In the Python 
+example, we might clarify more detail about what the Order database looks like, as well as some example Orders within the prompt.
+
+Prompts such as these can give us a good start on whatever we are trying to do. But a start is rarely where we want to end up. In fact, sometimes there will be errors in our code we will 
+have to fix later. We will next discuss continuing to shape our responses into a final and usable state.
+
+* Instructions
+--------------
+Checkpoint 1 Enabled
+1.
+The code editor has one file open, script.py. You will be pasting code into this file.
+
+Use FakeGPT to generate Python code to connect to a Mongodb database and query the most recent order from the Orders table.
+
+Click Run in the workspace to check your code.
+
+
+Write Python code to connect to a MongoDB database and query the most recent order from the Orders table.
+
+To connect to a MongoDB database and query the most recent order from the "Orders" table, you can use the PyMongo library in Python. Here's an example code snippet:
+
+from pymongo import MongoClient
+
+# Connect to the MongoDB server
+client = MongoClient("mongodb://localhost:27017")
+
+# Access the database and collection
+db = client["your_database_name"]
+orders_collection = db["Orders"]
+
+# Query the most recent order
+most_recent_order = orders_collection.find_one({}, sort=[("order_date", -1)])
+
+# Print the most recent order details
+print("Most Recent Order:")
+print("Order ID:", most_recent_order["order_id"])
+print("Order Date:", most_recent_order["order_date"])
+# Add more fields from your "Orders" table as needed
+
+In this example, we create a MongoClient object to connect to the MongoDB server running on "localhost" at the default port "27017". Then, we access the desired database and collection 
+using the db and orders_collection variables, respectively. Finally, we query the most recent order by calling the find_one() method on the collection with an empty filter and a sort 
+parameter to sort the results based on the "order_date" field in descending order (-1 means descending order). The result is stored in the most_recent_order variable, which can be further 
+processed as needed.
+
+2.
+Now, let’s run the file by typing the correct command in the Terminal. If you’re not sure how to run a python file, try asking FakeGPT!
+
+
+Hint
+This workspace uses python3. Did you use you run the script.py file by typing:
+
+To run a Python file from the command line or terminal, you use the python command followed by the name of the Python file you want to run. Here's the basic syntax:
+
+python filename.py
+
+Replace filename.py with the actual name of your Python file. Make sure you're in the same directory as the file or provide the full path to the file if it's located in a different 
+directory.
+
+If you have multiple versions of Python installed, you might need to use python3 instead of python to specify a specific version. This is more common on systems where both Python 2 and 
+Python 3 are installed.
+
+python3 my_script.py
+
+python3 script.py
+
+and pressing the Enter key?
+
+If you see an error in the Terminal, that’s alright! You ran the code correctly, but there is an error in the code.
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
