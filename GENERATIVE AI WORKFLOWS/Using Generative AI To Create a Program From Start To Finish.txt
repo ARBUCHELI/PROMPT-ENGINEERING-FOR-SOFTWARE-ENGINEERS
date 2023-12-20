@@ -154,6 +154,190 @@ If you see an error in the Terminal, that’s alright! You ran the code correctl
 
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
+* Debugging
+-----------
+Whether the code is ours or generated, the code will have errors at some point. It might not compile, might crash when run, or not behave the way we expect it to. Generative AI can assist 
+us in understanding why a problem is occurring and how to fix it.
+
+There are multiple ways we can approach debugging using Generative AI. Typically it is useful to:
+
+	. Provide the code
+
+	. Provide the error message or faulty behavior
+
+Here it is important to provide enough context and information for the tool to identify and fix the problem. There is a large difference between asking “What’s wrong with the following 
+code? <code>” versus “This code <code> is producing the following error <error> when testing with the following values <input>”.
+
+Note: for security reasons, you can’t install new libraries in this workspace, so we’ve used fake commands and responses to give you a realistic experience while still maintaining a 
+-----
+secure environment.
+
+* Instructions
+--------------
+Checkpoint 1 Enabled
+1.
+We created code to connect to a Mongodb database and query the most recent order from the Orders table, but it had an error in it. Let’s figure out how to fix it!
+
+Ask FakeGPT about this error and use the provided command to try fixing the error.
+
+
+Hint
+This workspace uses python3. Did you use you install the pymongo file by typing:
+
+pip3 install pymongo
+
+and pressing the Enter key?
+
+script.py
+---------
+from pymongo import MongoClient
+
+# Connect to the MongoDB server
+client = MongoClient("mongodb://localhost:27017")
+
+# Access the database and collection
+# Is this the correct database name?
+db = client["your_database_name"]
+orders_collection = db["Orders"]
+
+# Query the most recent order
+most_recent_order = orders_collection.find_one({}, sort=[("order_date", -1)])
+
+# Print the most recent order details
+print("Most Recent Order:")
+print("Order ID:", most_recent_order["order_id"])
+print("Order Date:", most_recent_order["order_date"])
+# Add more fields from your "Orders" table as needed
+
+Can you tell me more about this Python error:
+
+Traceback (most recent call last):
+  File "script.py", line 1, in module
+    from pymongo import MongoClient
+ModuleNotFoundError: No module named 'pymongo'
+
+The error message you provided, known as a "traceback," indicates that there is an issue with importing the pymongo module in your Python script (script.py). Let's break down the error 
+message:
+
+1. The `Traceback (most recent call last):` line indicates that an error occurred while executing your script, and the following lines provide information about the error.
+
+2. `File "script.py", line 1, in module` tells you that the error occurred in line 1 of the file script.py.
+
+3. `from pymongo import MongoClient` is the line of code in your script that is causing the error.
+
+4. `ModuleNotFoundError: No module named 'pymongo'` is the specific error message. It means that Python couldn't find the pymongo module, which is necessary for your script to work.
+
+This error typically occurs when the required module (pymongo, in this case) is not installed in your Python environment. Here's how you can resolve this issue:
+
+
+Install the Missing Module
+--------------------------
+Open your terminal or command prompt and use the following command to install the pymongo module:
+
+pip install pymongo
+
+If you're using Python 3, you might need to use pip3 instead of pip:
+
+pip3 install pymongo
+
+Output
+------
+$ pip3 install pymongo
+Collecting pymongo
+  Downloading pymongo-4.5.0-cp39-cp39-macosx_10_9_universal2.whl (529 kB)
+     |████████████████████████████████| 529 kB 2.5 MB/s 
+Collecting dnspython<3.0.0,>=1.16.0
+  Downloading dnspython-2.4.2-py3-none-any.whl (300 kB)
+     |████████████████████████████████| 300 kB 5.8 MB/s 
+Installing collected packages: dnspython, pymongo
+Successfully installed dnspython-2.4.2 pymongo-4.5.0
+
+2.
+Careful, we didn’t update the line:
+
+db = client["your_database_name"]
+
+to have the correct database name! pymongo might create a new database called your_database_name if we don’t specify the correct database.
+
+Use FakeGPT to learn more about how pymongo might act in this situation. Next, fix the error.
+
+Our database is actually named company_database. Update the line to be:
+
+db = client["company_database"]
+
+Press the Run button to check your code.
+
+script.py
+---------
+from pymongo import MongoClient
+
+# Connect to the MongoDB server
+client = MongoClient("mongodb://localhost:27017")
+
+# Access the database and collection
+# Is this the correct database name?
+db = client["company_database"]
+orders_collection = db["Orders"]
+
+# Query the most recent order
+most_recent_order = orders_collection.find_one({}, sort=[("order_date", -1)])
+
+# Print the most recent order details
+print("Most Recent Order:")
+print("Order ID:", most_recent_order["order_id"])
+print("Order Date:", most_recent_order["order_date"])
+# Add more fields from your "Orders" table as needed
+
+3.
+Now, let’s run the file by typing the correct command in the Terminal. If you’re not sure how to run a python file, try asking FakeGPT!
+
+
+Hint
+This workspace uses python3. Did you use you run the script.py file by typing:
+
+python3 script.py
+
+and pressing the Enter key?
+
+If you see an error in the Terminal, that’s alright! You ran the code correctly, but there is an error in the code.
+
+Output
+------
+$ python3 script.py
+Most Recent Order:
+Order ID: 5892
+Order Date: 2023-08-20 15:30:00
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
