@@ -518,7 +518,73 @@ Purchase Date: 2023-08-18 14:20:00
 
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
+* Using Generative AI as a Reference
+------------------------------------
+Throughout working with Generative AI tools, there might be various points at which we want to avoid using code directly and learn concepts, snippets, and ideas instead. We might not 
+fully trust the tool’s outputs, which is reasonable, or want to code certain parts ourselves.
 
+There are many ways Generative Tools can make suggestions while we remain the code’s primary author. Engineers are often using the tools as a reference, for learning, and simple 
+assistance.
+
+Rather than asking the tools for code for production use, consider prompts like the following:
+
+	. Create some examples of using the axios library in Typescript.
+
+	. Explain what the following code does: <code>
+
+	. Explain the syntax for creating an embedded struct in Go.
+
+	. What are the most important concepts to learn in Kubernetes? Provide examples of those concepts in practice.
+
+While these prompts won’t get us code that makes it into our application, they can be helpful for deciding how we want to approach our own problems.
+
+* Instructions
+--------------
+Click on a sample prompt to see what using ChatGPT for research could look like!
+
+Create some examples of using the axios library in Typescript.
+
+Certainly! Here are a few examples of using the Axios library in TypeScript:
+
+1. Sending a GET request:
+
+
+import axios from 'axios';
+
+axios.get('https://api.example.com/users')
+.then(response => {
+console.log(response.data);
+})
+.catch(error => {
+console.error(error);
+});
+
+
+2. Sending a POST request with JSON data:
+
+
+import axios from 'axios';
+
+const data = {
+name: 'John Doe',
+email: 'john.doe@example.com'
+};
+
+axios.post('https://api.example.com/users', data)
+.then(response => {
+console.log(response.data);
+})
+.catch(error => {
+console.error(error);
+});
+
+In these examples, we import the Axios library and use its methods to make HTTP requests. The `.then()` function is used to handle successful responses, and the `.catch()` function is 
+used to handle errors. The response data can be accessed through the `response.data` property.
+
+Make sure to install the Axios library and set up your TypeScript project accordingly before using these examples. You can install Axios using npm or yarn (`npm install axios` or `yarn 
+add axios`), and ensure that your TypeScript configuration is properly set up to use Axios and compile TypeScript code.
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 
 
