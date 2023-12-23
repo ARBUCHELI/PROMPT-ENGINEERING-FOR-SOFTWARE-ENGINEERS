@@ -412,6 +412,149 @@ print("Most Recent Order:")
 print("Order ID:", most_recent_order["order_id"])
 print("Order Date:", most_recent_order["order_date"])
 
+2.
+Next, let’s change the title of the “order_date” attribute to “purchase_date”.
+
+Ask FakeGPT if you’re not sure how to do this!
+
+Press the Run button to check your code.
+
+
+Hint
+You should have replaced:
+
+most_recent_orders = orders_collection.find().sort("order_date", -1).limit(3)
+
+with
+
+most_recent_orders = orders_collection.find().sort("purchase_date", -1).limit(3)
+
+You should have also replaced:
+
+  print("Order Date:", order["order_date"])
+
+with
+
+print("Purchase Date:", order["purchase_date"])
+
+To change the title of the "order_date" attribute to "purchase_date" in the MongoDB query, you need to update the field name in the code. Here's the modified code snippet:
+
+
+from pymongo import MongoClient
+
+# Connect to the MongoDB server
+client = MongoClient("mongodb://localhost:27017")
+
+# Access the database and collection
+db = client["your_database_name"]
+orders_collection = db["Orders"]
+
+# Query the three most recent orders
+most_recent_orders = orders_collection.find().sort("purchase_date", -1).limit(3)
+
+# Print the details of the three most recent orders
+print("Three Most Recent Orders:")
+for order in most_recent_orders:
+  print("Order ID:", order["order_id"])
+  print("Purchase Date:", order["purchase_date"])
+  print("---")
+
+script.py
+---------
+from pymongo import MongoClient
+
+# Connect to the MongoDB server
+client = MongoClient("mongodb://localhost:27017")
+
+# Access the database and collection
+db = client["company_database"]
+orders_collection = db["Orders"]
+
+# Change this line to find three orders
+most_recent_orders = orders_collection.find().sort("purchase_date", -1).limit(3)
+
+# Change these lines to print the three most recent order details
+for order in most_recent_orders:
+print("Most Recent Order:")
+print("Order ID:", most_recent_order["order_id"])
+print("Purchase Date:", most_recent_order["purchase_date"])
+
+3.
+Now, let’s run the file by typing the correct command in the Terminal. If you’re not sure how to run a python file, try asking FakeGPT!
+
+
+Hint
+This workspace uses python3. Did you use you run the script.py file by typing:
+
+python3 script.py
+
+and pressing the Enter key?
+
+If you see an error in the Terminal, that’s alright! You ran the code correctly, but there is an error in the code.
+
+To run a Python file from the command line or terminal, you use the python command followed by the name of the Python file you want to run. Here's the basic syntax:
+
+python filename.py
+
+Replace filename.py with the actual name of your Python file. Make sure you're in the same directory as the file or provide the full path to the file if it's located in a different 
+directory.
+
+If you have multiple versions of Python installed, you might need to use python3 instead of python to specify a specific version. This is more common on systems where both Python 2 and 
+Python 3 are installed.
+
+python3 my_script.py
+
+$ python3 script.py
+Three Most Recent Orders:
+Order ID: 5892
+Purchase Date: 2023-08-20 15:30:00
+---
+Order ID: 5893
+Purchase Date: 2023-08-19 10:45:00
+---
+Order ID: 5894
+Purchase Date: 2023-08-18 14:20:00
+---
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
