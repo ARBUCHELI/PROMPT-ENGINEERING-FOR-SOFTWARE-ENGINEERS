@@ -1,0 +1,38 @@
+Naval Battle Game Instructions
+------------------------------
+Objective:
+----------
+Sink all the enemy ships hidden on the grid.
+
+Game Setup:
+-----------
+1. The game is played on a 10x10 grid.
+2. Enemy ships of various sizes are randomly placed on the grid.
+
+Gameplay:
+---------
+1. Click on a cell to target it.
+2. If the cell contains a part of an enemy ship, it will turn red (hit).
+3. If the cell does not contain a ship, it will turn green (miss).
+4. The game provides feedback after each move.
+5. Continue targeting cells until all enemy ships are sunk.
+
+Rules:
+------
+1. Each ship occupies a certain number of adjacent cells either horizontally or vertically.
+2. Ships cannot overlap or be placed diagonally.
+3. The grid is a wrap-around, meaning targeting a cell on the edge will continue on the opposite edge.
+
+Winning:
+--------
+Win the game by sinking all the enemy ships.
+
+Tips:
+-----
+1. Pay attention to the grid and try to identify the orientation and size of enemy ships.
+2. Keep track of your hits and misses to make educated guesses about ship locations.
+
+Good luck, Commander!
+---------------------
+Sink the enemy fleet and emerge victorious in this naval battle! Adjust your strategy, use your wit, and may the seas be in your 
+favor.
