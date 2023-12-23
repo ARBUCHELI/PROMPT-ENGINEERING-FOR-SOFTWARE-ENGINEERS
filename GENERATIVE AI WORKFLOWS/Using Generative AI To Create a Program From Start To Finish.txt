@@ -586,6 +586,60 @@ add axios`), and ensure that your TypeScript configuration is properly set up to
 
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
+* Review
+--------
+Over the course of this lesson we’ve described ways to work with Generative AI tooling as we move through a programming project. At any stage, Generative AI can assist in speeding up the 
+development in applications. We’ve discussed:
+
+	. Using prompts during the design phase to discuss scope and tooling
+
+	. Incorporating Generative AI outputs into the project itself
+
+	. Further molding and debugging of AI output
+
+	. Using AI as a reference throughout development
+
+When working on future projects, you could consider using AI tools such as ChatGPT, Copilot, and Bard.
+
+* Instructions
+--------------
+Use FakeGPT to explore more topics.
+
+What are some AI topics I can explore?
+
+The following is a non-exhaustive list of programming topics you can explore:
+- Linear Regression
+- Natural Language Processing
+- R
+- Data Cleaning
+- PySpark
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
